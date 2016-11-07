@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rpi</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light bg-faded">
+      <div class="container-fluid">
+        <div class="navbar-header">
+           <a class="navbar-brand">Plataforma Estudiantil</a>
+        </div>
+        <button class="navbar-toggler hidden-md-up float-xs-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+          &#9776;
+        </button>
+        <div class="collapse navbar-toggleable-sm" id="exCollapsingNavbar">
+          <ul class="nav navbar-nav float-xs-right">
+            <% if user_signed_in? %>
+              <li class="nav-item active">
+                <a class="nav-link">Courses<span class="sr-only">(current)</span></a>
+              </li>
+              <% if current_user.role.name == "Admin" %>
+                <li class="nav-item">
+                  <%= link_to "Admin Panel", rails_admin.dashboard_path, class: "nav-link" %>
+                </li>
+              <% end %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></a>
+                <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
+                    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-itemnav-link" %>
+                </div>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info") %>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>
