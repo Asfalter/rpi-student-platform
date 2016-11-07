@@ -31,8 +31,11 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></a>
                 <div class="dropdown-menu" aria-labelledby="supportedContentDropdown">
-                    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-itemnav-link" %>
+                    <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "dropdown-item nav-link" %>
                 </div>
+              </li>
+              <li class="nav-item">
+                <%= image_tag current_user.avatar.url(:thumb), class: "navbar-avatar rounded-circle" %>
               </li>
             <% end %>
           </ul>

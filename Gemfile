@@ -38,6 +38,8 @@ gem 'rails_admin', '~> 1.0'
 #cancancan gem
 gem 'cancancan', '~> 1.10'
 
+gem "paperclip", "~> 5.0.0"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
