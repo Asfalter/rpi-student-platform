@@ -1,3 +1,5 @@
+$enable-flex: true;
+
 .navbar {
   margin-bottom: 1rem;
   font-size: 0.9rem;
@@ -9,6 +11,18 @@
   padding-bottom: 0.2rem;
 }
 
-$enable-flex: true;
+.card-footer{
+position:absolute;
+  bottom:0;
+  width:100%;
+}
+
+.card-deck .card{
+  padding-bottom:5rem;
+  }
+
+.btn-cards {
+  width: 100%;
+}
 
 @import "bootstrap";
